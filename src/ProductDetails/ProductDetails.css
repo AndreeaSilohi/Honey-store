@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Poppins:wght@100;200;400&family=Rajdhani:wght@300&display=swap');
+
+.detalii-page {
+  margin-bottom: 40px;
+  background-color: #eeebdd;
+}
+.detalii-titlu {
+  font-size: 20px;
+  /* //font-family: "Quicksand", sans-serif; */
+  font-family: "Catamaran", sans-serif;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detalii-card {
+  padding-bottom: 20px;
+  text-align: center;
+
+  font-size: 40px;
+  margin-bottom: 4px;
+  margin-left: 20px;
+}
+.detalii-container {
+  display: flex;
+}
+
+.detalii-left {
+  flex: 1;
+  padding: 40px;
+}
+
+.detalii-right {
+  flex: 1.5;
+  padding: 150px;
+  
+}
+
+.card-media {
+  height: 600px;
+  background-color:#eeebdd;
+  border:none;
+}
+
+.detalii-pret {
+  color: rgb(215, 126, 43);
+  display: flex;
+  margin-left: 20px;
+  font-family: "Catamaran", sans-serif;
+}
+
+.detalii-quantity {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.accordion-recenzii {
+  margin-top: 15px;
+}
+
+.notification {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-single {
+  width: 100%;
+
+  display: block;
+  transition: opacity 0.3s ease; /* Add a smooth transition for opacity changes */
+}
