@@ -50,7 +50,7 @@ function Shop() {
             <Link
               to={`/product-details/${product.id}/${product.name}/${product.price}/${
                 product.description
-              }/${encodeURIComponent(product.image)}`}
+              }/${encodeURIComponent(product.image)}/${product.additional}`}
               key={product.name}
             >
               <Card

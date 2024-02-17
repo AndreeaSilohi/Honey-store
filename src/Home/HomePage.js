@@ -285,6 +285,7 @@ function HomePage() {
           ></img>
         </div>
       </div>
+      
     </div>
   );
 }

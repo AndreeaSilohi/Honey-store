@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { productsData } from "../Products";
 import { CartItem } from "./CartItem";
 import { ShopContext } from "../ShopContextProvider";
-import Navbar from "../navbar/Navbar";
 import React from "react";
 import "./Cart.css";
 function Cart() {
@@ -15,12 +14,14 @@ function Cart() {
   return (
     <div className="wrapper">
       <div className="cart">
-        {/* <div className="navbar">
-          <Navbar />
-        </div> */}
         <div className="cartTitle" >
           <h1>Cosul tau </h1>
         </div>
+        <div className="table-header">
+        <div className="table-header-1">PRODUCT</div>
+        <div className="table-header-2">PRICE</div>
+        <div className="table-header-3">QUANTITY</div>
+      </div>
         <div className="cartItems">
           {productsData.map((product) => {
             if (cartItems[product.id] !== 0) {

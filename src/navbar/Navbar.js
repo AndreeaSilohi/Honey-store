@@ -86,10 +86,11 @@ function Navbar() {
           Contact
         </NavLink>
       </ul>
-
-      <ShoppingCart size={28} onClick={toggleDrawer("right", true)}>
-        Open Right Drawer
-      </ShoppingCart>
+      <div className="shopping-cart">
+        <ShoppingCart size={28} onClick={toggleDrawer("right", true)}>
+          Open Right Drawer
+        </ShoppingCart>
+      </div>
       <SwipeableDrawer
         anchor="right"
         open={state["right"]}
@@ -98,22 +99,6 @@ function Navbar() {
       >
         {list}
       </SwipeableDrawer>
-
-      {/* <div className="sidenav">
-        <NavLink onClick={toggleDrawer('right', true)} >
-        <SwipeableDrawer
-        anchor="right"
-        open={state['right']}
-        onClose={toggleDrawer('right', false)}
-        onOpen={toggleDrawer('right', true)}
-      >
-        {list}
-      </SwipeableDrawer>
-        <ShoppingCart size={28} />
-        </NavLink>
-
-
-      </div> */}
 
       <div className="sidenav">
         <NavLink to="/wishlist">
