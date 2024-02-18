@@ -6,7 +6,6 @@
 }
 .detalii-titlu {
   font-size: 20px;
-  /* //font-family: "Quicksand", sans-serif; */
   font-family: "Catamaran", sans-serif;
   display: flex;
   justify-content: flex-start;
@@ -15,9 +14,7 @@
 .detalii-card {
   margin-top: 100px;
   text-align: center;
-
   font-size: 40px;
-
   margin-left: 20px;
 }
 .detalii-container {
@@ -51,6 +48,7 @@
   display: flex;
   align-items: center;
   padding: 20px;
+  margin-left: -40px;
 }
 
 .accordion-recenzii {
@@ -70,7 +68,6 @@
 
 .product-single {
   width: 100%;
-
   display: block;
   transition: opacity 0.3s ease; /* Add a smooth transition for opacity changes */
 }
@@ -90,7 +87,6 @@
 .group-btn {
   display: flex;
   justify-content: center;
-
 }
 
 .info-review {
@@ -116,5 +112,5 @@
   height: 0.5px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.199);
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }

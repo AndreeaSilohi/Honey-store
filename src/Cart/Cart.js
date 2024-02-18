@@ -9,19 +9,18 @@ function Cart() {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   const navigate = useNavigate();
-  
 
   return (
     <div className="wrapper">
       <div className="cart">
-        <div className="cartTitle" >
-          <h1>Cosul tau </h1>
+        <div className="cartTitle">
+          <p>Cosul tau </p>
         </div>
         <div className="table-header">
-        <div className="table-header-1">PRODUCT</div>
-        <div className="table-header-2">PRICE</div>
-        <div className="table-header-3">QUANTITY</div>
-      </div>
+          <div className="table-header-1">PRODUCT</div>
+          <div className="table-header-2">PRICE</div>
+          <div className="table-header-3">QUANTITY</div>
+        </div>
         <div className="cartItems">
           {productsData.map((product) => {
             if (cartItems[product.id] !== 0) {
@@ -31,7 +30,8 @@ function Cart() {
         </div>
         {totalAmount > 0 ? (
           <div className="checkout">
-            <p>Subtotal: {totalAmount} lei</p>
+            <p className="subtotal">Subtotal: {totalAmount} lei</p>
+
             <button onClick={() => navigate("/shop")}>Continue Shopping</button>
             <button>Checkout</button>
           </div>
@@ -40,8 +40,6 @@ function Cart() {
         )}
       </div>
     </div>
-
-
   );
 }
 export default Cart;

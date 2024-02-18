@@ -9,26 +9,31 @@ export const CartItem = (props) => {
 
   return (
     <div className="cart-table">
-
       <div className="table-content">
         <div className="table-content-1">
-          <div className="img-name">
-          <img src={image} />
-          {name}
+          <div className="img">
+            <img src={image} />
+           
           </div>
-         
+          <div className="name">
+          <p style={{maxWidth:"220px"}}>{name}</p>
+          </div>
         </div>
-        <div className="table-content-2">
-          {price}
-        </div>
+        <div className="table-content-2">{price}</div>
         <div className="table-content-3">
-
-        <button onClick={() => removeFromCart(id)}> - </button>
-        <input
-          value={cartItems[id]}
-          onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-        />
-        <button onClick={() => addToCart(id)}> + </button>
+          <div>
+            <button onClick={() => removeFromCart(id)}> - </button>
+          </div>
+          <div>
+            <input
+            style={{textAlign:"center",background:"transparent"}}
+              value={cartItems[id]}
+              onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+            />
+          </div>
+          <div>
+            <button onClick={() => addToCart(id)}> + </button>
+          </div>
         </div>
       </div>
     </div>

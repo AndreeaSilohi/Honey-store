@@ -14,16 +14,17 @@ import productSingle from "../assets/productSingle.png";
 import { ShopContext } from "../ShopContextProvider";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
-import ButtonGroup from "@mui/material/ButtonGroup";
+
 
 import "./ProductDetails.css";
 const ProductDetails = () => {
   const [value, setValue] = React.useState(0);
   const [notification, setNotification] = useState(null);
-  const { id, name, price, description, image, additional } = useParams();
+  const { id, name, price, description, image, additional,stoc } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { addToCart, cartItems } = useContext(ShopContext); // Use the ShopContext
-  console.log(additional);
+ 
+
   const cartItemAmount = cartItems[id];
 
   // const handleIncrease = () => {
@@ -99,18 +100,18 @@ const ProductDetails = () => {
             </div>
           </div>
           <div class="divider"></div>
-          
+
           {additionalInfoVisible && (
             <div className="additional-info">
               <Typography
-               sx={{
-                fontFamily: "Catamaran, sans-serif",
-                fontSize: "20px",
-                lineHeight:"25px",
-                padding:"60px"
-              }}
+                sx={{
+                  fontFamily: "Catamaran, sans-serif",
+                  fontSize: "20px",
+                  lineHeight: "25px",
+                  padding: "60px",
+                }}
               >
-               {additional}
+                {additional}
               </Typography>
             </div>
           )}
@@ -169,6 +170,7 @@ const ProductDetails = () => {
                 fontFamily: "Catamaran, sans-serif",
                 fontSize: "15px",
                 textTransform: "uppercase",
+                
               }}
             >
               Add To Cart {cartItemAmount > 0 && <> ({cartItemAmount})</>}
