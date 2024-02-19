@@ -1,38 +1,46 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useReducer } from "react";
 import Navbar from "../navbar/Navbar";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { CardActionArea } from "@mui/material";
-import { Link } from "react-router-dom";
-import ProductDetails from "../ProductDetails/ProductDetails";
+import axios from "axios";
+
+import logger from "use-reducer-logger";
 import "./OurShop.css";
-import { productsData } from "../Products";
-import { WishlistContext } from "../WishListContextProvider";
+
+import Product from "../Product/Product";
+import LoadingBox from "../LoadingBox";
+import MessageBox from "../MessageBox";
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_REQUEST":
+      return { ...state, loading: true };
+    case "FETCH_SUCCESS":
+      return { ...state, products: action.payload, loading: false };
+    case "FETCH_FAIL":
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
 
 function Shop() {
-  const { wishListItems, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
-  const [notification, setNotification] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    products: [],
+    loading: true,
+    error: "",
+  });
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: "FETCH_REQUEST" });
+      try {
+        const result = await axios.get("/api/products");
+        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+      } catch (err) {
+        dispatch({ type: "FETCH_FAIL", payload: err.message });
+      }
+    };
+    fetchData();
+  }, []);
 
-  const handleCardClick = (product) => {
-    setSelectedProduct(product);
-  };
-
-  const handleAddToWishlist = (productId, event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (!wishListItems[productId]) {
-      addToWishlist(productId);
-      setNotification(`${productId} a fost adaugat in wishlist`);
-      setTimeout(() => {
-        setNotification(null);
-      }, 3000);
-    }
-  };
+  console.log(products)
 
   return (
     <div>
@@ -46,56 +54,19 @@ function Shop() {
         </div>
 
         <div className="cards-shop">
-          {productsData.map((product) => (
-            <Link
-              to={`/product-details/${product.id}/${product.name}/${product.price}/${
-                product.description
-              }/${encodeURIComponent(product.image)}/${product.additional}/${product.stoc}`}
-              key={product.name}
-            >
-              <Card
-                className="card"
-                sx={{
-                  backgroundColor: "#edcea8",
-                  border: "2px solid #ccc",
-                }}
-                onClick={() => handleCardClick(product)}
-              >
-                <CardActionArea>
-                  <CardMedia
-                    className="card-content"
-                    component="img"
-                    image={product.image}
-                    alt={product.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {product.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Pret: {product.price} de lei
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <IconButton
-                  onClick={(event) => handleAddToWishlist(product.id, event)}
-                  aria-label="Add to Wishlist"
-                  color={
-                    wishListItems[product.id] ? "secondary" : "default"
-                  }
-                  
-                >
-                  <FavoriteIcon />
-                </IconButton>
-              </Card>
-            </Link>
-          ))}
+          {loading ? (
+           <LoadingBox/>
+          ) : error ? (
+           <MessageBox severity="error">{error}</MessageBox>
+          ) : (
+            products.map((product) => <Product product={product}></Product>)
+          )}
         </div>
       </div>
+      {/* 
+      {notification && <div className="notification">{notification}</div>} */}
 
-      {notification && <div className="notification">{notification}</div>}
-
-      {selectedProduct && <ProductDetails product={selectedProduct} />}
+      {/* {selectedProduct && <ProductDetails product={selectedProduct} />} */}
     </div>
   );
 }

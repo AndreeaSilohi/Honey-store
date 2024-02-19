@@ -29,14 +29,17 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact-form" element ={<ContactForm/>}/>
-          <Route path="/product-details/:id/:name/:price/:description/:image/:additional/:stoc" element={<ProductDetails />} />
+          <Route path="/product-details/:id/:name/:price/:description/:image/:additional/:stoc/:slug" element={<ProductDetails />} />
           <Route path="/curiosities" element={<Curiosities/>}/>
           <Route path="/profile" element ={<Profile/>}/>
           <Route path="/cart" element ={<Cart/>}/>
           <Route path="/wishlist" element ={<WishList/>}/>
 
         </Routes>
-        <Footer />
+        
+      </div>
+      <div>
+      <Footer />
       </div>
     </Router>
     </ShopContextProvider>

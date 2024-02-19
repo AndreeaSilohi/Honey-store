@@ -114,3 +114,19 @@
   background-color: rgba(0, 0, 0, 0.199);
   margin-bottom: 40px;
 }
+
+
+.status{
+  padding: 14px;
+  font-family: "Catamaran", sans-serif;
+  text-transform: uppercase;
+}
+.in-stock {
+  color: #4caf50;
+
+}
+
+.unavailable {
+  color: red;
+
+}

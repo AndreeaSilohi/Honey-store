@@ -14,6 +14,7 @@ export const productsData = [
       "Mierea de tei este o miere cu proprietăți anti-microbiene și anti-inflamatorii, fiind utilizată în tratarea crampelor și a bolilor renale. ",
     additional: "Este fabricata in romania",
     stoc:2,
+    slug:"1"
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const productsData = [
       "Mierea poliflora este produsul multor plante de pe camp si are in compozitia sa diverse minerale, vitamine si principii active pe care planta le transmite, prin albine, mierii si, prin miere, omului.  ",
     additional: "Este fabricata in romania",
     stoc:0,
+    slug:"2"
 
   },
   {
@@ -33,7 +35,8 @@ export const productsData = [
     image: pachetpoliflora,
     description: "acest produs este ",
     additional: "Este fabricata in romania",
-    stoc:4
+    stoc:4,
+    slug:"3"
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ export const productsData = [
     description: "acest produs este ",
     additional: "Este fabricata in romania",
     stoc:9,
+    slug:"4"
   },
   {
     id: 5,
@@ -51,6 +55,7 @@ export const productsData = [
     image: mierecufagure,
     description: "acest produs este ",
     additional: "Este fabricata in romania",
-    stoc:10
+    stoc:10,
+    slug:"5"
   },
 ];
