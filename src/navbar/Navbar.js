@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { ShoppingCart, User, SignOut, HeartStraight } from "phosphor-react";
@@ -6,35 +7,43 @@ import "./Navbar.css";
 import Box from "@mui/material/Box";
 import Cart from "../Cart/Cart";
 import logo from "../assets/logo.png";
+import Badge from "@mui/material/Badge";
+
+import { Store } from "../Store";
+import Drawer from "../Drawer/Drawer";
+
 function Navbar() {
-  const [state, setState] = React.useState({
+  const [stateCart, setstateCart] = React.useState({
     right: false,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event?.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+  const { state } = useContext(Store);
+  const { cart } = state;
 
-    setState({ ...state, [anchor]: open });
-  };
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (
+  //     event?.type === "keydown" &&
+  //     (event.key === "Tab" || event.key === "Shift")
+  //   ) {
+  //     return;
+  //   }
 
-  const list = (
-    <Box
-      sx={{
-        width: 650,
-        display: "flex",
-      }}
-      role="presentation"
-      onClick={(event) => event.stopPropagation()}
-      onKeyDown={toggleDrawer("right", false)}
-    >
-      <Cart />
-    </Box>
-  );
+  //   setstateCart({ ...stateCart, [anchor]: open });
+  // };
+
+  // const list = (
+  //   <Box
+  //     sx={{
+  //       width: 650,
+  //       display: "flex",
+  //     }}
+  //     role="presentation"
+  //     onClick={(event) => event.stopPropagation()}
+  //     onKeyDown={toggleDrawer("right", false)}
+  //   >
+  //     <Cart />
+  //   </Box>
+  // );
   return (
     <div className="navbar">
       <img className="logo" src={logo}></img>
@@ -86,19 +95,35 @@ function Navbar() {
           Contact
         </NavLink>
       </ul>
-      <div className="shopping-cart">
-        <ShoppingCart size={28} onClick={toggleDrawer("right", true)}>
-          Open Right Drawer
-        </ShoppingCart>
-      </div>
-      <SwipeableDrawer
+
+      <NavLink to="/cart" className="nav-link">
+        <Badge
+          badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+          color="error"
+        >
+          <ShoppingCart size={28} />
+        </Badge>
+      </NavLink>
+
+      {/* <div className="shopping-cart">
+        <div onClick={toggleDrawer("right", true)}>
+          <Badge
+            badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+            color="error"
+          >
+            <ShoppingCart size={28} />
+          </Badge>
+        </div>
+      </div> */}
+
+      {/* <SwipeableDrawer
         anchor="right"
-        open={state["right"]}
+        open={stateCart["right"]}
         onClose={toggleDrawer("right", false)}
         onOpen={toggleDrawer("right", true)}
       >
         {list}
-      </SwipeableDrawer>
+      </SwipeableDrawer> */}
 
       <div className="sidenav">
         <NavLink to="/wishlist">

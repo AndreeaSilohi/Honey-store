@@ -6,56 +6,55 @@ import pachetsalcam from "../src/assets/pachetsalcam.png";
 
 export const productsData = [
   {
-    id: 1,
+    _id: "1",
     name: "Miere de tei",
     price: 40,
-    image: tei,
+    image: "https://i.postimg.cc/BtW39pf0/tei-1.png",
     description:
       "Mierea de tei este o miere cu proprietăți anti-microbiene și anti-inflamatorii, fiind utilizată în tratarea crampelor și a bolilor renale. ",
     additional: "Este fabricata in romania",
-    stoc:2,
-    slug:"1"
+    stoc: 2,
+    slug: "1",
   },
   {
-    id: 2,
+    _id: "2",
     name: "Miere poliflora",
     price: 35,
-    image: poliflora,
+    image: "https://i.postimg.cc/qRjpNJkq/poliflora.png",
     description:
       "Mierea poliflora este produsul multor plante de pe camp si are in compozitia sa diverse minerale, vitamine si principii active pe care planta le transmite, prin albine, mierii si, prin miere, omului.  ",
     additional: "Este fabricata in romania",
-    stoc:0,
-    slug:"2"
-
+    stoc: 0,
+    slug: "2",
   },
   {
-    id: 3,
+    _id: "3",
     name: " Miere poliflora 4 borcane",
     price: 150,
-    image: pachetpoliflora,
+    image: "https://i.postimg.cc/W1kWz52J/pachetpoliflora.png",
     description: "acest produs este ",
     additional: "Este fabricata in romania",
-    stoc:4,
-    slug:"3"
+    stoc: 4,
+    slug: "3",
   },
   {
-    id: 4,
+    _id: "4",
     name: "Miere salcam 4 borcane",
     price: 135,
-    image: pachetsalcam,
+    image: "https://i.postimg.cc/3rj34ZxV/pachetsalcam.png",
     description: "acest produs este ",
     additional: "Este fabricata in romania",
-    stoc:9,
-    slug:"4"
+    stoc: 9,
+    slug: "4",
   },
   {
-    id: 5,
+    _id:"5",
     name: "Miere cu fagure",
     price: 40,
-    image: mierecufagure,
+    image: "https://i.postimg.cc/nLKDwD1W/mierecufagure.png",
     description: "acest produs este ",
     additional: "Este fabricata in romania",
-    stoc:10,
-    slug:"5"
+    stoc: 0,
+    slug: "5",
   },
 ];

@@ -1,23 +1,24 @@
 // ProductDetails.js
 
 import React, { useState, useContext, useReducer, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
-import { Badge, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import Navbar from "../navbar/Navbar";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import productSingle from "../assets/productSingle.png";
-import { ShopContext } from "../ShopContextProvider";
+import { Link } from "react-router-dom";
+// import { ShopContext } from "../ShopContextProvider";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import "./ProductDetails.css";
 import axios from "axios";
 import LoadingBox from "../LoadingBox";
 import MessageBox from "../MessageBox";
+import { Store } from "../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,9 +36,10 @@ const reducer = (state, action) => {
 const ProductDetails = () => {
   const params = useParams();
   const { slug } = params;
+
   const [value, setValue] = React.useState(0);
   const [notification, setNotification] = useState(null);
-  const { addToCart, cartItems } = useContext(ShopContext); // Use the ShopContext
+  // const { addToCart, cartItems } = useContext(ShopContext); // Use the ShopContext
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -58,7 +60,7 @@ const ProductDetails = () => {
     fetchData();
   }, [slug]);
 
-  const cartItemAmount = cartItems[product.id];
+  // const cartItemAmount = cartItems[product.id];
 
   const [selectedTab, setSelectedTab] = useState(null);
   const [additionalInfoVisible, setAdditionalInfoVisible] = useState(false);
@@ -72,23 +74,39 @@ const ProductDetails = () => {
       setAdditionalInfoVisible(false);
     }
   };
-  const handleAddToCart = () => {
-    addToCart(product.id);
+
+  const { state, dispatch: ctxDispath } = useContext(Store);
+  const { cart } = state;
+  const navigate = useNavigate();
+
+  const handleAddToCart = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+
+    if (data.stoc < quantity) {
+      window.alert("Sorry. Product is out of stock");
+      return;
+    }
+
+    ctxDispath({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    navigate("/cart");
+
     setNotification(` Ai adaugat ${product.name} in cos`);
     setTimeout(() => {
       setNotification(null);
     }, 3000);
   };
+
   return (
     <div className="detalii-page">
       <div className="detalii-navbar">
         <Navbar />
       </div>
-      {error ? (
-        <div style={{height:"100vh"}}>
-        <MessageBox severity="error">{error}</MessageBox>
-        
 
+      {error ? (
+        <div style={{ height: "100vh" }}>
+          <MessageBox severity="error">{error}</MessageBox>
         </div>
       ) : (
         <>
@@ -198,31 +216,31 @@ const ProductDetails = () => {
                 </Box>
               </div>
               <div className="detalii-quantity">
-                {product.stoc > 0 ? (
-                  <Button
-                    variant="contained"
-                    style={{ backgroundColor: "#d77e2b" }}
-                    onClick={handleAddToCart}
-                    sx={{
-                      fontFamily: "Catamaran, sans-serif",
-                      fontSize: "15px",
-                      textTransform: "uppercase",
-                    }}
+                {product.stoc === 0 ? (
+                  <Button 
+                  variant="contained" 
+                  sx={{
+                    fontFamily: "Catamaran, sans-serif",
+                    fontSize: "15px",
+                    textTransform: "uppercase",
+                  }}
+                  disabled
                   >
-                    Add To Cart {cartItemAmount > 0 && <> ({cartItemAmount})</>}
+                    Out of stock
                   </Button>
                 ) : (
                   <Button
                     variant="contained"
                     style={{ backgroundColor: "#d77e2b" }}
-                    disabled // This will disable the button
                     sx={{
                       fontFamily: "Catamaran, sans-serif",
                       fontSize: "15px",
                       textTransform: "uppercase",
                     }}
+                    onClick={handleAddToCart}
                   >
-                    Out of Stock
+                    {" "}
+                    Add to cart
                   </Button>
                 )}
               </div>

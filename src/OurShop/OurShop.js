@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer } from "react";
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
-
 import logger from "use-reducer-logger";
-import "./OurShop.css";
-
 import Product from "../Product/Product";
 import LoadingBox from "../LoadingBox";
 import MessageBox from "../MessageBox";
+import ourshop from "../assets/ourshop.png";
+import "./OurShop.css";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -40,24 +40,26 @@ function Shop() {
     fetchData();
   }, []);
 
-  console.log(products)
+  console.log(products);
 
   return (
     <div>
       <div className="navbar">
         <Navbar />
       </div>
-
-      <div className="shop">
-        <div className="shop-title">
-          <h5>Cele mai apreciate produse</h5>
+      <header>
+        <div className="background-container-shop">
+          <div className="overlay-text-shop">
+            <h1 className="h1-title-shop">OUR SHOP</h1>
+          </div>
         </div>
-
+      </header>
+      <div className="shop">
         <div className="cards-shop">
           {loading ? (
-           <LoadingBox/>
+            <LoadingBox />
           ) : error ? (
-           <MessageBox severity="error">{error}</MessageBox>
+            <MessageBox severity="error">{error}</MessageBox>
           ) : (
             products.map((product) => <Product product={product}></Product>)
           )}

@@ -1,7 +1,12 @@
 import "./Profile.css";
 import Navbar from "../navbar/Navbar";
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 function Profile() {
+  const { search } = useLocation();
+
+  const redirectUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectUrl ? redirectUrl : "/";
   return (
     <div>
       <div className="navbar">
@@ -16,25 +21,6 @@ function Profile() {
                 src="https://images.unsplash.com/photo-1497322313607-9fa0c2c4c4f8?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
-              {/* <div className="text">
-            <span className="text-1">
-              Every new friend is a <br /> new adventure
-            </span>
-            <span className="text-2">Let's get connected</span>
-          </div> */}
-            </div>
-            <div className="back">
-              <img
-                // className="backImg"
-                // src="https://tainavie.ro/wp-content/uploads/2022/03/miere-cu-fagure-430x430.jpg"
-                alt=""
-              />
-              <div className="text">
-                <span className="text-1">
-                  Complete miles of journey <br /> with one step
-                </span>
-                <span className="text-2">Let's get started</span>
-              </div>
             </div>
           </div>
           <div className="forms">
@@ -46,7 +32,7 @@ function Profile() {
                     <div className="input-box">
                       <i className="fas fa-envelope"></i>
                       <input
-                        type="text"
+                        type="email"
                         placeholder="Enter your email"
                         required
                       />
@@ -66,7 +52,10 @@ function Profile() {
                       <input type="submit" value="Submit" />
                     </div>
                     <div className="text sign-up-text">
-                      Don't have an account? <label for="flip">Sigup now</label>
+                      Don't have an account?
+                      <Link to={`/signup?redirect=${redirect}`}>
+                        Create an account
+                      </Link>
                     </div>
                   </div>
                 </form>
