@@ -47,7 +47,7 @@ function Shop() {
       <div className="navbar">
         <Navbar />
       </div>
-      <header>
+      <header className="header-shop">
         <div className="background-container-shop">
           <div className="overlay-text-shop">
             <h1 className="h1-title-shop">OUR SHOP</h1>
