@@ -1,62 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu+Condensed&display=swap');
-.table-content {
-  display: flex;
-  margin-left: 0;
-  font-family: "Open Sans", sans-serif;
-}
 
-.table-content-1 {
-  width: 300px;
-  /* background-color: aqua; */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
 
-.table-content-2 {
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  /* background-color: rgb(0, 255, 17); */
-  align-items: center;
-}
 
-.table-content-3 {
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  /* background-color: rgb(255, 0, 200); */
-  align-items: center;
-}
 
-.cart-table {
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.118);
-}
 
-.table-content-1 img {
-  width: 80px;
-  height: 80px;
-}
 
-.img {
-  display: flex;
-  align-items: center;
-}
 
-.table-content-3 input {
-  border: none;
-  font-size: 15px;
-  width: 20px;
-  display: flex;
-  justify-content: center;
-}
-.table-content-3 button {
-  height: 40px;
-  width: 40px;
-  border: none;
-  background-color: transparent;
-  font-size: 24px;
-  cursor: pointer;
-}
+
+
+
 

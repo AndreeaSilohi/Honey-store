@@ -8,9 +8,8 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import DrawerBasic from "../Cart/Drawer";
-import React
- from "react";
+import Animation from "../Animation/Animation";
+import React from "react";
 function HomePage() {
   return (
     <div className="container-home">
@@ -185,12 +184,14 @@ function HomePage() {
             pentru a aduce metabolismul la un vârf de prospețime și vitalizare.
           </div>
         </div>
+        <Animation/>
         <div className="grid-container-img">
           <div className="grid-item-text">
             Stupul este o intreaga farmacie. Produsele apicole sunt necesare
             pentru oameni menține sănătatea, pentru a preveni bolile, dar și
             pentru a aduce metabolismul la un vârf de prospețime și vitalizare.
           </div>
+
           <div className="grid-item-img">
             <img
               alt="text"
@@ -285,7 +286,6 @@ function HomePage() {
           ></img>
         </div>
       </div>
-      
     </div>
   );
 }

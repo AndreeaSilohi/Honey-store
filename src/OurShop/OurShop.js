@@ -5,7 +5,6 @@ import logger from "use-reducer-logger";
 import Product from "../Product/Product";
 import LoadingBox from "../LoadingBox";
 import MessageBox from "../MessageBox";
-import ourshop from "../assets/ourshop.png";
 import "./OurShop.css";
 
 const reducer = (state, action) => {

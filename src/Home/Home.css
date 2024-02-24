@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,200&family=Pacifico&family=Whisper&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900');
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Poppins:wght@100;200;400&family=Rajdhani:wght@300&display=swap");
 
 .background-container {
   position: relative;
@@ -41,8 +42,8 @@ header {
   padding-bottom: 20px;
   background-color: #EEEBDD;
   text-align: center;
-  font-family: "Whisper", cursive;
-  font-size: 40px;
+  font-family: "Catamaran", sans-serif !important;
+  font-size: 35px;
   color: rgb(215, 126, 43);
 }
 .card-media {

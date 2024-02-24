@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
-
-import Card from "@mui/material/Card";
+// import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -14,6 +13,7 @@ import { ShoppingCartSimple } from "phosphor-react";
 import { Store } from "../Store";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import "./Product.css";
 function Product(props) {
   const { product } = props;
 
@@ -40,9 +40,9 @@ function Product(props) {
     });
 
     setNotification(`${data.name} a fost adaugat in wishlist`);
-      setTimeout(() => {
-        setNotification(null);
-      }, 3000);
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
   };
 
   const { wishListItems, addToWishlist } = useContext(WishlistContext);
@@ -67,36 +67,33 @@ function Product(props) {
 
   return (
     <div>
-      <Link to={`/product/${product.slug}`} key={product.name}>
-        <Card
+      <Link className="product-link" to={`/product/${product.slug}`} key={product.name}>
+        <div
           className="card"
-          sx={{
-            backgroundColor: "#edcea8",
-            border: "2px solid #ccc",
-            paddingBottom:"25px",
+          style={{
+            backgroundColor: "#f3f3f3",
+            paddingBottom: "25px",
           }}
           onClick={() => handleCardClick(product)}
         >
-          <CardActionArea>
+          
             <CardMedia
               className="card-content"
               component="img"
               image={product.image}
               alt={product.name}
-              sx={{
-                fontFamily: "Catamaran, sans-serif",
-              }}
+ 
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography className="typografy-name"gutterBottom variant="h5" component="div">
                 {product.name}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography  className="typografy-price"  color="text.secondary">
                 Pret: {product.price} de lei
               </Typography>
             </CardContent>
-          </CardActionArea>
-          <div className="item-shop">
+         
+          <div className="actions-card">
             <IconButton
               onClick={(event) => handleAddToWishlist(product._id, event)}
               aria-label="Add to Wishlist"
@@ -125,7 +122,7 @@ function Product(props) {
               </Button>
             )}
           </div>
-        </Card>
+        </div>
       </Link>
       {notification && <div className="notification">{notification}</div>}
 
