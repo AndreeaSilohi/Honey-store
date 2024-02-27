@@ -23,6 +23,8 @@
 .nav-links > a {
   color:#4D4D4D;
   text-decoration: none;
+
+
 }
 
 .icon {
@@ -43,4 +45,12 @@
 
 .shopping-cart{
   cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+.cart-nav{
+  margin-right: 60px;
 }

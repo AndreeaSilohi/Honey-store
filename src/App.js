@@ -16,6 +16,7 @@ import { StoreProvider } from "./Store";
 import { WishlistProvider } from "./WishListContextProvider";
 import WishList from "./Wishlist/Wishlist";
 import Drawer from "./Drawer/Drawer";
+import Shipping from './Shipping/Shipping'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/signin" element ={<Profile/>}/>
           <Route path="/wishlist" element ={<WishList/>}/>
           <Route path ="/drawer" element ={<Drawer/>}/>
+          {/* <Route path ="/shipping" element ={<Shipping/>}/> */}
         </Routes>
       </div>
       <div>
