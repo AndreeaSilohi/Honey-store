@@ -16,7 +16,7 @@ import { StoreProvider } from "./Store";
 import { WishlistProvider } from "./WishListContextProvider";
 import WishList from "./Wishlist/Wishlist";
 import Drawer from "./Drawer/Drawer";
-import Shipping from './Shipping/Shipping'
+import ShippingAddress from "./ShippingAddress/ShippingAddress";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="/signin" element ={<Profile/>}/>
           <Route path="/wishlist" element ={<WishList/>}/>
           <Route path ="/drawer" element ={<Drawer/>}/>
-          {/* <Route path ="/shipping" element ={<Shipping/>}/> */}
+          <Route path ="/shipping" element ={<ShippingAddress/>}/>
         </Routes>
       </div>
       <div>
