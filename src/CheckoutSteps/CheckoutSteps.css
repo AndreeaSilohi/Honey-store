@@ -1,0 +1,25 @@
+/* CheckoutSteps.css */
+
+.checkout-steps {
+  margin-bottom: 16px;
+  margin-top: 40px; /* Add a margin-top */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid #ccc;
+}
+
+.step-item {
+  flex-grow: 1;
+
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  background-color: whitesmoke;
+  width: 120px;
+}
+
+.active-step {
+  background-color: #f08000 !important;
+  color: #fff;
+}

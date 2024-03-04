@@ -1,91 +1,9 @@
 body {
   background: #fafafa;
 }
-.input-field-box {
-  position: relative;
-  margin: 15px 0px;
-}
-.input-field-box input,
-.input-field-box textarea {
-  font-size: 18px;
-  padding: 5px 2px;
-  display: block;
-  background: transparent;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #0000001f;
-}
-.input-field-box input:focus,
-.input-field-box textarea {
-  outline: none;
-}
-/* LABEL ======================================= */
-.input-field-box label {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 15px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  top: 10px;
-  transition: 0.2s ease all;
-}
-
-/* active state */
-.input-field-box input:focus ~ label,
-.input-field-box textarea:focus ~ label {
-  top: -15px;
-  font-size: 12px;
-  color: rgb(13, 71, 161);
-}
-.input-field-box input:valid ~ label,
-.input-field-box textarea:valid ~ label.input-has-value {
-  top: -15px;
-  font-size: 12px;
-}
-.mat-form .form-group {
-  display: inline-block;
-  width: 100%;
-  font-family: Roboto, sans-serif;
-}
-
-/* BOTTOM BARS ================================= */
-.input-field-box {
-    position: relative;
-    margin: 40px 0px; /* Increased margin for more space between input fields */
-  }
-.input-field-box .bar {
-  position: relative;
-  display: block;
-  width: 50%;
-}
-.input-field-box .bar:before,
-.input-field-box .bar:after {
-  content: "";
-  height: 2px;
-  width: 0;
-  bottom: 0.5px;
-  position: absolute;
-  background: rgb(13, 71, 161);
-  transition: 0.2s ease all;
-}
-.input-field-box .bar:before {
-  left: 50%;
-}
-.input-field-box .bar:after {
-  right: 50%;
-}
-
-/* active state */
-.input-field-box input:focus ~ .bar:before,
-.input-field-box input:focus ~ .bar:after,
-.input-field-box textarea:focus ~ .bar:before,
-.input-field-box textarea:focus ~ .bar:after {
-  width: 50%;
-}
 
 .container-shipping {
   position: relative;
-  
 }
 
 .navbar-shipping {
@@ -97,13 +15,18 @@ body {
 }
 
 .form-shipping {
-    padding: 80px;
-    box-sizing: border-box; /* Include padding in the total width */
-    width: 100%; /* Occupy full width of the container */
-    max-width: 800px; /* Adjust the max-width as needed */
-    margin: auto; /* Center the form horizontally */
+  padding: 80px;
+  box-sizing: border-box; /* Include padding in the total width */
+  width: 900px; /* Adjust the max-width as needed */
+  margin: auto; /* Center the form horizontally */
 }
 
-.form-shipping-content{
-    padding:40px;
+.form-shipping-content {
+  padding: 40px;
 }
+
+/* .checkout{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+} */

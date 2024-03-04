@@ -1,27 +1,34 @@
-import "./Profile.css";
-import { useContext, useState ,useEffect} from "react";
+import { useContext, useState, useEffect } from "react";
 import Axios from "axios";
 import Navbar from "../navbar/Navbar";
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
-function Profile() {
+
+function SignUp() {
   const navigate = useNavigate();
   const { search } = useLocation();
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
 
   const redirectUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectUrl ? redirectUrl : "/";
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {userInfo}=state;
-
-  const submitHandler = async (e) => {
+  const submitHandlerSignup = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
     try {
-      const { data } = await Axios.post("/api/users/signin", {
+      const { data } = await Axios.post("/api/users/signup", {
+        name,
         email,
         password,
       });
@@ -57,14 +64,23 @@ function Profile() {
           </div>
           <div className="forms">
             <div className="form-content">
-              <div className="login-form">
-                <div className="title">Login</div>
-                <form onSubmit={submitHandler} action="#">
+              <div className="signup-form">
+                <div className="title">Signup</div>
+                <form onSubmit={submitHandlerSignup} action="#">
                   <div className="input-boxes">
+                    <div className="input-box">
+                      <i className="fas fa-user"></i>
+                      <input
+                        type="text"
+                        placeholder="Enter your name"
+                        required
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
                     <div className="input-box">
                       <i className="fas fa-envelope"></i>
                       <input
-                        type="email"
+                        type="text"
                         placeholder="Enter your email"
                         required
                         onChange={(e) => setEmail(e.target.value)}
@@ -79,47 +95,14 @@ function Profile() {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
-                    <div className="text">
-                      <a href="#">Forgot password?</a>
-                    </div>
-                    <div className="button input-box">
-                      <input type="submit" value="Submit" />
-                    </div>
-                    <div className="text sign-up-text">
-                      Don't have an account?
-                      <Link to={`/signup?redirect=${redirect}`}>
-                        Create an account
-                      </Link>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className="signup-form">
-                <div className="title">Signup</div>
-                <form action="#">
-                  <div className="input-boxes">
-                    <div className="input-box">
-                      <i className="fas fa-user"></i>
-                      <input
-                        type="text"
-                        placeholder="Enter your name"
-                        required
-                      />
-                    </div>
-                    <div className="input-box">
-                      <i className="fas fa-envelope"></i>
-                      <input
-                        type="text"
-                        placeholder="Enter your email"
-                        required
-                      />
-                    </div>
+
                     <div className="input-box">
                       <i className="fas fa-lock"></i>
                       <input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder="Confirm password"
                         required
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                       />
                     </div>
                     <div className="button input-box">
@@ -127,7 +110,7 @@ function Profile() {
                     </div>
                     <div className="text sign-up-text">
                       Already have an account?{" "}
-                      <label for="flip">Login now</label>
+                      <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
                     </div>
                   </div>
                 </form>
@@ -140,4 +123,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default SignUp;

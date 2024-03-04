@@ -7,6 +7,8 @@ import "./ShippingAddress.css";
 import { Store } from "../Store";
 import { useContext } from "react";
 
+import CheckoutSteps from "../CheckoutSteps/CheckoutSteps";
+
 export default function ShippingAddress() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -64,6 +66,10 @@ export default function ShippingAddress() {
       <div className="form-shipping">
         <form className="mat-form" onSubmit={submitHandler}>
           <h1 className="text-center">Shipping Address</h1>
+          <div className="checkout">
+          <CheckoutSteps step1 step2  ></CheckoutSteps>
+          </div>
+
           <div className="form-shipping-content">
             <div className="form-group">
               <div className="row">
