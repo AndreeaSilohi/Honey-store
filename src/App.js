@@ -19,6 +19,8 @@ import Drawer from "./Drawer/Drawer";
 import ShippingAddress from "./ShippingAddress/ShippingAddress";
 import SignUp from "./SignUp/SignUp";
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
+import PlaceOrder from "./PlaceOrder/PlaceOrder";
+import OrderScreen from "./orderScreen/OrderScreen";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
               <Route path="/drawer" element={<Drawer />} />
               <Route path="/shipping" element={<ShippingAddress />} />
               <Route path="/payment" element={<PaymentMethod />} />
+              <Route path="/placeorder" element={<PlaceOrder />} />
+              <Route path="/order/:id" element={<OrderScreen />} />
             </Routes>
           </div>
           <div>
