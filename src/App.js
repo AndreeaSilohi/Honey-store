@@ -21,6 +21,7 @@ import SignUp from "./SignUp/SignUp";
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
 import PlaceOrder from "./PlaceOrder/PlaceOrder";
 import OrderScreen from "./orderScreen/OrderScreen";
+import OrderHistory from "./OrderHistory/OrderHistory";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
               <Route path="/payment" element={<PaymentMethod />} />
               <Route path="/placeorder" element={<PlaceOrder />} />
               <Route path="/order/:id" element={<OrderScreen />} />
+              <Route path="/orderhistory" element={<OrderHistory />} />
             </Routes>
           </div>
           <div>

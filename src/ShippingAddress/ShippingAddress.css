@@ -1,10 +1,6 @@
-body {
-  background: #fafafa;
-}
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Poppins:wght@100;200;400&family=Rajdhani:wght@300&display=swap");
 
-.container-shipping {
-  position: relative;
-}
+
 
 .navbar-shipping {
   width: 100%;
@@ -15,14 +11,37 @@ body {
 }
 
 .form-shipping {
-  padding: 80px;
-  box-sizing: border-box; /* Include padding in the total width */
-  width: 900px; /* Adjust the max-width as needed */
-  margin: auto; /* Center the form horizontally */
+  padding: 60px;
+  box-sizing: border-box; 
+  width: 85%; 
+  margin: auto; 
+  
+
 }
 
 .form-shipping-content {
-  padding: 40px;
+  padding: 60px;
+}
+
+.form-shipping-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-shipping-content-button {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+.text-center{
+  font-family: "Catamaran", sans-serif !important;
+  font-size: 35px;
+  border: 1px solid rgba(0, 0, 0, 0.118);
+  padding: 10px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 /* .checkout{
@@ -30,3 +49,29 @@ body {
   justify-content: space-between;
   width:100%;
 } */
+
+.button-continue{
+  font-family: "Catamaran", sans-serif !important;
+}
+
+.background-picture{
+ 
+
+ 
+}
+
+.container-shipping{
+  /* background: url('https://i.postimg.cc/wMfC8PXc/output-onlinepngtools-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.frame{
+  display: flex;
+
+}
+
+svg {
+  transform: rotate(270);
+}

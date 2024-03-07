@@ -130,7 +130,7 @@ export default function OrderScreen() {
           type: "resetOptions",
           value: {
             "client-id": clientId,
-            currency: "USD",
+            currency: "EUR",
           },
         });
         paypalDispatch({ type: "setLoadingStatus", value: "pending" });
@@ -221,7 +221,7 @@ export default function OrderScreen() {
                           <span>{item.quantity}</span>
                         </Grid>
                         <Grid item xs={3}>
-                          ${item.price}
+                         {item.price}lei 
                         </Grid>
                       </Grid>
                     </ListItem>
@@ -241,7 +241,7 @@ export default function OrderScreen() {
                         Items
                       </Grid>
                       <Grid item xs>
-                        ${order.itemsPrice}
+                        {order.itemsPrice}lei
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -251,7 +251,7 @@ export default function OrderScreen() {
                         Shipping
                       </Grid>
                       <Grid item xs>
-                        ${order.shippingPrice}
+                        {order.shippingPrice}lei
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -261,7 +261,7 @@ export default function OrderScreen() {
                         Tax
                       </Grid>
                       <Grid item xs>
-                        ${order.taxPrice}
+                        {order.taxPrice}lei
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -271,7 +271,7 @@ export default function OrderScreen() {
                         <strong> Order Total</strong>
                       </Grid>
                       <Grid item xs>
-                        <strong>${order.totalPrice}</strong>
+                        <strong>{order.totalPrice}LEI</strong>
                       </Grid>
                     </Grid>
                   </ListItem>

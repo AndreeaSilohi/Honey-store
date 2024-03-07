@@ -50,7 +50,6 @@ export default function PlaceOrder() {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   const placeOrderHandler = async () => {
-    console.log("ceva")
     try {
       dispatch({ type: "CREATE_REQUEST" });
       const { data } = await axios.post(
@@ -174,7 +173,7 @@ export default function PlaceOrder() {
                         Items
                       </Grid>
                       <Grid item xs>
-                        ${cart.itemsPrice}
+                        {cart.itemsPrice} lei 
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -184,7 +183,7 @@ export default function PlaceOrder() {
                         Shipping
                       </Grid>
                       <Grid item xs>
-                        ${cart.shippingPrice}
+                        {cart.shippingPrice} lei
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -194,7 +193,7 @@ export default function PlaceOrder() {
                         Tax
                       </Grid>
                       <Grid item xs>
-                        ${cart.taxPrice}
+                        {cart.taxPrice} lei
                       </Grid>
                     </Grid>
                   </ListItem>
@@ -204,7 +203,7 @@ export default function PlaceOrder() {
                         <strong> Order Total</strong>
                       </Grid>
                       <Grid item xs>
-                        <strong>${cart.totalPrice}</strong>
+                        <strong>{cart.totalPrice} lei</strong>
                       </Grid>
                     </Grid>
                   </ListItem>

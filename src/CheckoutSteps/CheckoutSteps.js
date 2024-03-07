@@ -4,19 +4,19 @@ import "./CheckoutSteps.css"; // Import the CSS file
 
 const CheckoutSteps = (props) => {
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid  >
       <div className="checkout-steps">
         <div>
-          <StepItem label="Sign-In" active={props.step1} />
+          <StepItem className="step" label="Sign-In" active={props.step1} />
         </div>
         <div>
-          <StepItem label="Shipping" active={props.step2} />
+          <StepItem className="step" label="Shipping" active={props.step2} />
         </div>
         <div>
-          <StepItem label="Payment" active={props.step3} />
+          <StepItem className="step" label="Payment" active={props.step3} />
         </div>
         <div>
-          <StepItem label="Place Order" active={props.step4} />
+          <StepItem className="step" label="Place Order" active={props.step4} />
         </div>
       </div>
     </Grid>
